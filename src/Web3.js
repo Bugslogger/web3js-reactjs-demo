@@ -52,7 +52,7 @@ export const ConnectToMetmask = async (provider) => {
     await web3.eth.getHashrate(),
     await web3.eth.getGasPrice(),
     await web3.eth.getBlockNumber(),
-    await web3.eth.getBalance(address, "latest")
+    web3.utils.fromWei(await web3.eth.getBalance(address[0], "latest"))
   );
 
   return {
@@ -64,8 +64,15 @@ export const ConnectToMetmask = async (provider) => {
     // extend,
     PeerCount,
     currentProvider,
+    balance: web3.utils.fromWei(
+      await web3.eth.getBalance(address[0], "latest")
+    ),
     givenProvider,
-    chainID: changedChainId,
+    chainID: await web3.eth.getChainId(),
+    BlockNumber: await web3.eth.getBlockNumber(),
+    mining: await web3.eth.isMining(),
+    hashrate: await web3.eth.getHashrate(),
+    gasprice: web3.utils.fromWei(await web3.eth.getGasPrice()),
   };
 };
 
