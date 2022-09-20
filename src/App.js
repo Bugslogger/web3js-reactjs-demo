@@ -4,7 +4,7 @@ import Web3ConnectToMetamask from "./Component/Web3ConnectToMetamask";
 
 function App() {
   return (
-    <div className="w-100">
+    <div className="w-100 position-relative">
       <div className="w-100">
         <Header/>
       </div>
