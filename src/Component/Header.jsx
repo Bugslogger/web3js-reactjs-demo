@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,13 +12,12 @@ const Header = () => {
           </div>
 
           <div className="text-end ms-3">
-          <button
-              onClick={() => alert("Coming soon...")}
-              type="button"
-              className="btn mx-2 fw-bold btn-success"
-            >
-              For Miners
-            </button>
+            <Link to={"moralis"} className="btn mx-2 fw-bold btn-success">
+              Moralis
+            </Link>
+            <Link to={"/"} className="btn mx-2 fw-bold btn-success">
+              Web3js
+            </Link>
             <button
               type="button"
               onClick={() => window.open("https://discord.gg/AbqSA5bT2E")}
